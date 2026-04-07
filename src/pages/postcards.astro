@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const postcards = [
+  { name: 'Bear and Cubs', front: '/images/bear-and-cubs-front.jpg', back: '/images/bear-and-cubs-back.jpg' },
+  { name: 'Butterfly', front: '/images/butterfly-front.jpg', back: '/images/butterfly-back.jpg' },
+  { name: 'Cub', front: '/images/cub-front.jpg', back: '/images/cub-back.jpg' },
+  { name: 'Egrets', front: '/images/egrets-front.jpg', back: '/images/egrets-back.jpg' },
+  { name: 'Elk', front: '/images/elk-front.jpg', back: '/images/elk-back.jpg' },
+  { name: 'Fox', front: '/images/fox-front.jpg', back: '/images/fox-back.jpg' },
+  { name: 'Kuwohi', front: '/images/kuwohi-front.jpg', back: '/images/kuwohi-back.jpg' },
+  { name: 'Seahawks', front: '/images/seahawks-front.jpg', back: '/images/seahawks-back.jpg' },
+  { name: 'Sunrise', front: '/images/sunrise-front.jpg', back: '/images/sunrise-back.jpg' },
+  { name: 'Sunset', front: '/images/sunset-front.jpg', back: '/images/sunset-back.jpg' },
+];
+---
+
+<BaseLayout
+  title="Nature Photography Prints"
+  description="Purchase nature and wildlife photography postcards by Brad Coulter. Bears, elk, butterflies, and Smoky Mountain landscapes available on Etsy."
+  keywords={['nature photography', 'wildlife postcards', 'Smoky Mountains photography', 'nature prints', 'Brad Coulter photography']}
+>
+  <!-- Hero -->
+  <section class="relative pt-40 pb-xl overflow-hidden">
+    <img src="/images/kuwohi-front.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="container-wide relative z-10">
+      <h1 class="fade-up">Nature Photography Postcards</h1>
+      <p class="mt-4 text-gray-light text-h3 max-w-2xl mx-auto text-center fade-up" style="transition-delay: 0.1s">
+        Wildlife and landscape photography from the Smoky Mountains and beyond
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="py-2xl bg-off-black">
+    <div class="container-wide">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="section-label fade-up">The Collection</span>
+        <h2 class="mt-4 mb-6 fade-up" style="transition-delay: 0.1s">10-Card Postcard Set</h2>
+        <p class="text-gray-light fade-up" style="transition-delay: 0.2s">
+          Each postcard features original nature and wildlife photography by Brad Coulter. Click any card to see the back.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {postcards.map((card, i) => (
+          <div
+            class="postcard-container fade-up cursor-pointer"
+            style={`transition-delay: ${(i % 6) * 0.1}s`}
+            data-flipped="false"
+          >
+            <div class="postcard-inner">
+              <div class="postcard-front">
+                <img
+                  src={card.front}
+                  alt={`${card.name} postcard front - nature photography by Brad Coulter`}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                  <p class="text-white text-small">Click to flip</p>
+                </div>
+              </div>
+              <div class="postcard-back">
+                <img
+                  src={card.back}
+                  alt={`${card.name} postcard back`}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                  <p class="text-white text-small">Click to flip</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Etsy CTA -->
+      <div class="mt-16 text-center fade-up">
+        <h2 class="mb-6">Get the Complete Set</h2>
+        <p class="text-gray-light mb-8 max-w-2xl mx-auto">
+          Purchase the full 10-card postcard set featuring Brad's nature and wildlife photography. Available now on Etsy.
+        </p>
+        <a
+          href="https://www.etsy.com/shop/bradcoulterphoto"
+          target="_blank"
+          rel="noopener"
+          class="btn-primary text-lg"
+        >
+          Shop on Etsy &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .postcard-container {
+    perspective: 1000px;
+  }
+
+  .postcard-inner {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+    border-radius: 0.5rem;
+  }
+
+  .postcard-container[data-flipped="true"] .postcard-inner {
+    transform: rotateY(180deg);
+  }
+
+  .postcard-front,
+  .postcard-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .postcard-back {
+    transform: rotateY(180deg);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.postcard-container').forEach((card) => {
+    card.addEventListener('click', () => {
+      const isFlipped = card.getAttribute('data-flipped') === 'true';
+      card.setAttribute('data-flipped', isFlipped ? 'false' : 'true');
+    });
+  });
+</script>

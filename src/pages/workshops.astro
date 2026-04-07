@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What will I learn in a photography workshop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our workshops cover camera fundamentals, composition techniques, lighting, and post-processing basics. You'll gain hands-on experience shooting in real environments with guided instruction tailored to your skill level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need my own camera for photography classes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we recommend bringing your own camera so you can learn on the equipment you'll be using. Any DSLR or mirrorless camera will work. If you're considering purchasing a camera, we can help guide your decision before the workshop."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Photography Workshops & Classes | Knoxville TN"
+  description="Hands-on photography workshops in Knoxville, Tennessee. Group classes (max 5) and one-on-one instruction for beginners and intermediate photographers."
+  keywords={['photography workshops', 'photography classes Knoxville', 'learn photography', 'photography instruction Tennessee']}
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative pt-40 pb-xl overflow-hidden">
+    <img src="/images/elk-front.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-accent-green/50 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="container-wide relative z-10">
+      <h1 class="fade-up">Photography Workshops</h1>
+      <p class="mt-4 text-gray-light text-h3 max-w-2xl mx-auto text-center fade-up" style="transition-delay: 0.1s">
+        Hands-on photography instruction in Knoxville, Tennessee
+      </p>
+    </div>
+  </section>
+
+  <!-- Workshop Types -->
+  <section class="py-2xl bg-off-black">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto mb-16">
+        <span class="section-label fade-up">Learn by Doing</span>
+        <h2 class="mt-4 mb-6 fade-up" style="transition-delay: 0.1s">Experiential Photography Education</h2>
+        <p class="text-gray-light fade-up" style="transition-delay: 0.2s">
+          Our workshops emphasize hands-on learning — not just lectures. You'll get out in the field, practice real techniques, and receive personal feedback on your work.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Group Workshops -->
+        <div class="glass p-8 fade-up text-center" style="transition-delay: 0.3s">
+          <div class="mb-6">
+            <svg class="w-12 h-12 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="text-h3 mb-4">Group Workshops</h3>
+          <p class="text-gray-light mb-6">
+            Small group sessions limited to 5 participants for personalized attention and a collaborative learning environment.
+          </p>
+          <ul class="space-y-3 text-gray-light">
+            <li class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-accent-green rounded-full flex-shrink-0"></span>
+              Beginner Level — Camera basics, composition, and exposure
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-accent-green rounded-full flex-shrink-0"></span>
+              Intermediate Level — Advanced techniques, lighting, and post-processing
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-accent-green rounded-full flex-shrink-0"></span>
+              Maximum 5 participants per session
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-accent-green rounded-full flex-shrink-0"></span>
+              Field trips to practice in real environments
+            </li>
+          </ul>
+        </div>
+
+        <!-- One-on-One -->
+        <div class="glass p-8 fade-up text-center" style="transition-delay: 0.4s">
+          <div class="mb-6">
+            <svg class="w-12 h-12 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <h3 class="text-h3 mb-4">One-on-One Instruction</h3>
+          <p class="text-gray-light mb-6">
+            Private sessions tailored entirely to your goals, pace, and interests. The fastest way to improve your photography skills.
+          </p>
+          <ul class="space-y-3 text-gray-light">
+            <li class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-accent-blue rounded-full flex-shrink-0"></span>
+              Beginner Level — Personalized introduction to photography
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-accent-blue rounded-full flex-shrink-0"></span>
+              Intermediate Level — Targeted skill development
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-accent-blue rounded-full flex-shrink-0"></span>
+              Flexible scheduling
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-accent-blue rounded-full flex-shrink-0"></span>
+              Curriculum customized to your interests
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching Approach -->
+  <section class="relative py-2xl overflow-hidden">
+    <img src="/images/sunrise-front.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="container-wide relative z-10">
+      <div class="max-w-3xl fade-up">
+        <span class="section-label">Teaching Philosophy</span>
+        <h2 class="mt-4 mb-6">Get Out There and Shoot</h2>
+        <p class="text-gray-light mb-6 text-h3 font-accent italic">
+          The best way to learn photography is by doing it.
+        </p>
+        <p class="text-gray-light">
+          Our workshops include field trips to real locations where you'll practice techniques in natural environments. Whether it's the Smoky Mountains, local parks, or urban settings — you'll leave each session with real images you're proud of and skills you can immediately apply.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-2xl bg-off-black">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <span class="section-label fade-up">FAQ</span>
+        <h2 class="mt-4 mb-12 fade-up" style="transition-delay: 0.1s">Frequently Asked Questions</h2>
+
+        <div class="space-y-8">
+          <div class="glass p-8 fade-up" style="transition-delay: 0.2s">
+            <h3 class="text-h3 mb-4">What will I learn in a photography workshop?</h3>
+            <p class="text-gray-light">
+              Our workshops cover camera fundamentals, composition techniques, lighting, and post-processing basics. You'll gain hands-on experience shooting in real environments with guided instruction tailored to your skill level.
+            </p>
+          </div>
+
+          <div class="glass p-8 fade-up" style="transition-delay: 0.3s">
+            <h3 class="text-h3 mb-4">Do I need my own camera for photography classes?</h3>
+            <p class="text-gray-light">
+              Yes, we recommend bringing your own camera so you can learn on the equipment you'll be using. Any DSLR or mirrorless camera will work. If you're considering purchasing a camera, we can help guide your decision before the workshop.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-2xl bg-black">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="mb-6 fade-up">Ready to Improve Your Photography?</h2>
+        <p class="text-gray-light mb-8 fade-up" style="transition-delay: 0.1s">
+          Contact us to learn about upcoming group workshops or schedule a private session.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up" style="transition-delay: 0.2s">
+          <a href="/contact" class="btn-glass">Inquire About Sessions</a>
+          <a href="tel:8652389877" class="btn-outline">Call 865.238.9877</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

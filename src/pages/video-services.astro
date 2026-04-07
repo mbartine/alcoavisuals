@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does corporate video production cost in Knoxville?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Corporate video production costs in Knoxville vary based on project scope, length, and complexity. Alcoa Visuals offers competitive pricing with packages starting from simple testimonial videos to full broadcast-quality productions. Contact us for a custom quote tailored to your specific needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included in a video production package?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our full-service video production packages include concept development, scripting, storyboarding, professional filming, editing, motion graphics, and audio production. We handle everything from initial planning through final delivery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to produce a corporate video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Production timelines vary based on project complexity. A simple testimonial video may take 1-2 weeks, while a full corporate promotional video typically takes 3-6 weeks from concept to delivery. We work with your timeline to ensure efficient, quality results."
+      }
+    }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Corporate Video Production",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Alcoa Visuals"
+  },
+  "areaServed": "Knoxville, Tennessee",
+  "description": "Full-service corporate video production including concept development, filming, editing, and post-production."
+};
+
+const services = [
+  { title: 'Concept Development', desc: 'We work with you to shape your message and define the story you want to tell.' },
+  { title: 'Scripting', desc: 'Professional scriptwriting that turns ideas into compelling narratives.' },
+  { title: 'Storyboarding', desc: 'Visual planning to map out every scene before cameras roll.' },
+  { title: 'Professional Filming', desc: 'High-quality video capture with professional equipment and expertise.' },
+  { title: 'Editing & Post-Production', desc: 'Expert editing, color grading, and finishing to polish your final product.' },
+  { title: 'Motion Graphics', desc: 'Dynamic graphics and animations that elevate your production.' },
+  { title: 'Audio Production', desc: 'Professional sound design, mixing, and music selection.' },
+];
+
+const processSteps = [
+  { step: '01', title: 'Discovery', desc: 'We learn about your goals, audience, and message.' },
+  { step: '02', title: 'Script & Plan', desc: 'We develop the script, storyboard, and production plan.' },
+  { step: '03', title: 'Film', desc: 'Professional filming with attention to every detail.' },
+  { step: '04', title: 'Edit', desc: 'Post-production editing, graphics, and sound design.' },
+  { step: '05', title: 'Deliver', desc: 'Final review and delivery in your required formats.' },
+];
+---
+
+<BaseLayout
+  title="Corporate Video Production | Knoxville TN"
+  description="From concept to screen, Alcoa Visuals delivers corporate video production in the Knoxville, Tennessee area. Broadcast TV, commercials, testimonials, and promotional content."
+  keywords={['corporate video production', 'Knoxville video production', 'Tennessee videographer', 'commercial video', 'broadcast television']}
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative pt-40 pb-xl overflow-hidden">
+    <img src="/images/portfolio/broadcast-tv.jpeg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="container-wide relative z-10">
+      <h1 class="fade-up">Corporate Video Production</h1>
+      <p class="mt-4 text-gray-light text-h3 max-w-2xl mx-auto text-center fade-up" style="transition-delay: 0.1s">
+        Storytelling-first video production for Knoxville and East Tennessee
+      </p>
+    </div>
+  </section>
+
+  <!-- Services List -->
+  <section class="py-2xl bg-off-black">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto mb-16">
+        <span class="section-label fade-up">Services</span>
+        <h2 class="mt-4 mb-6 fade-up" style="transition-delay: 0.1s">Everything You Need, Under One Roof</h2>
+        <p class="text-gray-light fade-up" style="transition-delay: 0.2s">
+          Video production is storytelling. We combine professional equipment with a creative writing background to craft narratives — not just record footage.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service, i) => (
+          <div class="glass p-6 fade-up" style={`transition-delay: ${(i + 3) * 0.1}s`}>
+            <h3 class="mb-3" style="font-size: 1.25rem;">{service.title}</h3>
+            <p class="text-gray-light text-small">{service.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Types -->
+  <section class="py-2xl bg-charcoal">
+    <div class="container-wide">
+      <div class="text-center mb-16">
+        <span class="section-label fade-up">Project Types</span>
+        <h2 class="mt-4 fade-up" style="transition-delay: 0.1s">What We Produce</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="group relative aspect-video overflow-hidden fade-up" style="transition-delay: 0.2s">
+          <img src="/images/portfolio/corporate-promotion.jpg" alt="Corporate promotional video" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 style="font-size: 1.25rem;">Corporate Promotional Videos</h3>
+            <p class="text-gray-light text-small mt-2">Web marketing content and corporate communications</p>
+          </div>
+        </div>
+        <div class="group relative aspect-video overflow-hidden fade-up" style="transition-delay: 0.3s">
+          <img src="/images/portfolio/broadcast-tv.jpeg" alt="Broadcast TV production" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 style="font-size: 1.25rem;">TV Commercials & Broadcast</h3>
+            <p class="text-gray-light text-small mt-2">Broadcast-quality television content</p>
+          </div>
+        </div>
+        <div class="group relative aspect-video overflow-hidden fade-up" style="transition-delay: 0.4s">
+          <img src="/images/portfolio/testimonials.jpeg" alt="Testimonial videos" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 style="font-size: 1.25rem;">Testimonial Videos</h3>
+            <p class="text-gray-light text-small mt-2">Authentic client stories that build trust</p>
+          </div>
+        </div>
+        <div class="group relative aspect-video overflow-hidden fade-up" style="transition-delay: 0.5s">
+          <img src="/images/portfolio/helping-others.png" alt="Music and charitable content" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 style="font-size: 1.25rem;">Music & Charitable Content</h3>
+            <p class="text-gray-light text-small mt-2">Telling stories that matter</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="relative py-2xl overflow-hidden">
+    <img src="/images/aluminum-background.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/20"></div>
+    <img src="/images/Logo.png" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] opacity-[0.35] pointer-events-none" />
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-16">
+        <span class="section-label fade-up" style="color: white;">Our Process</span>
+        <h2 class="mt-4 fade-up" style="transition-delay: 0.1s">How We Work</h2>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-6">
+        {processSteps.map((item, i) => (
+          <div class="text-center fade-up" style={`transition-delay: ${(i + 2) * 0.1}s`}>
+            <div class="text-h2 text-white mb-2">{item.step}</div>
+            <h3 class="mb-2" style="font-size: 1.25rem;">{item.title}</h3>
+            <p class="text-white text-small">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-2xl bg-charcoal">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <span class="section-label fade-up">FAQ</span>
+        <h2 class="mt-4 mb-12 fade-up" style="transition-delay: 0.1s">Frequently Asked Questions</h2>
+
+        <div class="space-y-8">
+          <div class="glass p-8 fade-up" style="transition-delay: 0.2s">
+            <h3 class="mb-4" style="font-size: 1.25rem;">How much does corporate video production cost in Knoxville?</h3>
+            <p class="text-gray-light">
+              Corporate video production costs vary based on project scope, length, and complexity. We offer competitive pricing with packages ranging from simple testimonial videos to full broadcast-quality productions. Contact us for a custom quote tailored to your specific needs.
+            </p>
+          </div>
+
+          <div class="glass p-8 fade-up" style="transition-delay: 0.3s">
+            <h3 class="mb-4" style="font-size: 1.25rem;">What's included in a video production package?</h3>
+            <p class="text-gray-light">
+              Our full-service packages include concept development, scripting, storyboarding, professional filming, editing, motion graphics, and audio production. We handle everything from initial planning through final delivery.
+            </p>
+          </div>
+
+          <div class="glass p-8 fade-up" style="transition-delay: 0.4s">
+            <h3 class="mb-4" style="font-size: 1.25rem;">How long does it take to produce a corporate video?</h3>
+            <p class="text-gray-light">
+              Production timelines vary based on project complexity. A simple testimonial video may take 1-2 weeks, while a full corporate promotional video typically takes 3-6 weeks from concept to delivery. We work with your timeline to ensure efficient, quality results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-2xl bg-black">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="mb-6 fade-up">Let's Start Your Project</h2>
+        <p class="text-gray-light mb-8 fade-up" style="transition-delay: 0.1s">
+          Ready to tell your story? Get in touch and let's discuss your next video production.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up" style="transition-delay: 0.2s">
+          <a href="/contact" class="btn-glass">Get a Quote</a>
+          <a href="tel:8652389877" class="btn-outline">Call 865.238.9877</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

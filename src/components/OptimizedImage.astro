@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata | string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  sizes?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  class: className = '',
+  loading = 'lazy',
+  sizes = '100vw'
+} = Astro.props;
+
+// Check if it's an imported image (has width/height metadata) or a string path
+const isOptimizable = typeof src !== 'string' && src?.width;
+---
+
+{isOptimizable ? (
+  <Image
+    src={src as ImageMetadata}
+    alt={alt}
+    width={width || (src as ImageMetadata).width}
+    height={height || (src as ImageMetadata).height}
+    class={className}
+    loading={loading}
+    sizes={sizes}
+    format="webp"
+    quality={80}
+  />
+) : (
+  <img
+    src={src as string}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading={loading}
+  />
+)}

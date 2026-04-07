@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home">
+  <!-- Hero Section with Vimeo Background -->
+  <section class="relative h-screen max-h-[800px] flex items-center justify-center overflow-hidden pt-20">
+    <!-- Vimeo Background Video -->
+    <div class="absolute inset-0">
+      <iframe
+        src="https://player.vimeo.com/video/395797067?background=1&autoplay=1&muted=1&loop=1"
+        class="absolute w-[177.78vh] min-w-full h-[56.25vw] min-h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        title="Brad Coulter Industry Demo Reel"
+      ></iframe>
+      <div class="absolute inset-0 bg-black/50"></div>
+    </div>
+
+    <!-- Fallback poster for mobile -->
+    <div class="absolute inset-0 bg-cover bg-center md:hidden" style="background-image: url('/images/portfolio/corporate-promotion.jpg');">
+      <div class="absolute inset-0 bg-black/60"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <h1 class="font-display uppercase tracking-headline mb-4" style="font-size: clamp(2.5rem, 6vw, 4.7rem);">
+        Your Vision Produced
+      </h1>
+      <p class="font-body text-white max-w-2xl mx-auto mb-6" style="font-size: clamp(1.55rem, 3.1vw, 2.2rem);">
+        Complete Photo and Video Production for East Tennessee
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/video-services" class="btn-glass">Our Services</a>
+        <a href="/contact" class="btn-glass">Get a Quote</a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-gray-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="relative py-2xl overflow-hidden">
+    <img src="/images/aluminum-background.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/20"></div>
+    <img src="/images/Logo.png" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] opacity-[0.35] pointer-events-none" />
+    <div class="container-wide relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="section-label fade-up" style="color: white;">What We Do</span>
+        <h2 class="mt-4 mb-6 text-white fade-up" style="transition-delay: 0.1s">Full-Service Creative Production</h2>
+        <p class="text-white/80 fade-up" style="transition-delay: 0.2s">
+          From corporate video to photography and hands-on workshops, we bring your vision to life with a storytelling-first approach.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Video Production -->
+        <a href="/video-services" class="glass p-8 text-center group fade-up" style="transition-delay: 0.3s">
+          <div class="mb-6">
+            <svg class="w-12 h-12 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="mb-4 transition-colors" style="font-size: 1.45rem;">Video Production</h3>
+          <p class="text-white text-small">
+            Corporate videos, TV commercials, testimonials, and promotional content. From concept to final delivery.
+          </p>
+        </a>
+
+        <!-- Photography -->
+        <a href="/photography" class="glass p-8 text-center group fade-up" style="transition-delay: 0.4s">
+          <div class="mb-6">
+            <svg class="w-12 h-12 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="mb-4 transition-colors" style="font-size: 1.45rem;">Photography</h3>
+          <p class="text-white text-small">
+            Professional corporate photography — product shots, facility images, headshots, and brand imagery.
+          </p>
+        </a>
+
+        <!-- Workshops -->
+        <a href="/workshops" class="glass p-8 text-center group fade-up" style="transition-delay: 0.5s">
+          <div class="mb-6">
+            <svg class="w-12 h-12 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h3 class="mb-4 transition-colors" style="font-size: 1.45rem;">Workshops</h3>
+          <p class="text-white text-small">
+            Hands-on photography instruction. Small groups or one-on-one sessions for beginners and intermediate photographers.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach Section -->
+  <section class="relative py-2xl overflow-hidden">
+    <img
+      src="/images/brad/headshot.jpg"
+      alt="Brad Coulter"
+      class="absolute inset-0 w-full h-full object-cover object-top"
+    />
+    <div class="absolute inset-0 bg-black/75"></div>
+    <div class="container-wide relative z-10">
+      <div class="grid lg:grid-cols-2 gap-xl items-center">
+        <div class="fade-up">
+          <span class="section-label">Our Approach</span>
+          <h2 class="mt-4 mb-6">From Concept to Screen</h2>
+          <p class="text-gray-light mb-6">
+            At its core, video production is storytelling. With a bachelor's degree in Creative Writing from the University of Tennessee, Brad doesn't just record events — he crafts stories.
+          </p>
+          <p class="text-gray-light mb-8 font-accent italic text-h3">
+            "What the lion cannot manage to do, the fox can."
+          </p>
+          <p class="text-gray-light mb-8">
+            While large agencies get bogged down by red tape and committees, we rely on agility, strategy, and ingenuity — cutting through the noise to solve problems efficiently.
+          </p>
+          <a href="/about" class="btn-outline">Learn More About Us</a>
+        </div>
+        <div class="hidden lg:block"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Categories -->
+  <section class="py-2xl bg-charcoal">
+    <div class="container-wide">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="section-label fade-up">Our Work</span>
+        <h2 class="mt-4 fade-up" style="transition-delay: 0.1s">Project Categories</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <a href="/video-services" class="group relative aspect-video overflow-hidden fade-up" style="transition-delay: 0.2s">
+          <img src="/images/portfolio/broadcast-tv.jpeg" alt="Broadcast Television production in Knoxville" class="absolute inset-0 w-full h-full object-cover transition-transform duration-slow group-hover:scale-105" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="text-h3">Broadcast Television</h3>
+          </div>
+        </a>
+
+        <a href="/video-services" class="group relative aspect-video overflow-hidden fade-up" style="transition-delay: 0.3s">
+          <img src="/images/portfolio/testimonials.jpeg" alt="Testimonial video production" class="absolute inset-0 w-full h-full object-cover transition-transform duration-slow group-hover:scale-105" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="text-h3">Testimonials</h3>
+          </div>
+        </a>
+
+        <a href="/video-services" class="group relative aspect-video overflow-hidden fade-up" style="transition-delay: 0.4s">
+          <img src="/images/portfolio/helping-others.png" alt="Music and charitable video content" class="absolute inset-0 w-full h-full object-cover transition-transform duration-slow group-hover:scale-105" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="text-h3">Helping Others</h3>
+          </div>
+        </a>
+
+        <a href="/video-services" class="group relative aspect-video overflow-hidden fade-up" style="transition-delay: 0.5s">
+          <img src="/images/portfolio/corporate-promotion.jpg" alt="Corporate promotional video production in East Tennessee" class="absolute inset-0 w-full h-full object-cover transition-transform duration-slow group-hover:scale-105" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="text-h3">Corporate Promotion</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-2xl bg-black">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="mb-6 fade-up">Ready to Tell Your Story?</h2>
+        <p class="text-gray-light mb-8 fade-up" style="transition-delay: 0.1s">
+          Let's talk about your next project. Whether it's a corporate video, photography, or workshop — we're here to help.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up" style="transition-delay: 0.2s">
+          <a href="/contact" class="btn-glass">Get a Quote</a>
+          <a href="tel:8652389877" class="btn-outline">Call 865.238.9877</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script src="https://player.vimeo.com/api/player.js"></script>

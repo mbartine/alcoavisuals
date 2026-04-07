@@ -1,0 +1,148 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'profile';
+  keywords?: string[];
+}
+
+const {
+  title,
+  description = 'Alcoa Visuals provides professional video production, corporate photography, and photography workshops in the Knoxville, Tennessee area.',
+  image = '/images/brad/headshot.jpg',
+  type = 'website',
+  keywords = ['video production', 'Knoxville', 'corporate video', 'Alcoa TN', 'videographer', 'corporate photography', 'photography workshops']
+} = Astro.props;
+
+const siteUrl = 'https://alcoavisuals.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const fullImageUrl = new URL(image, siteUrl).toString();
+const fullTitle = title === 'Home' ? 'Alcoa Visuals | Video Production in Knoxville, Tennessee' : `${title} | Alcoa Visuals`;
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Alcoa Visuals",
+  "url": siteUrl,
+  "telephone": "865-238-9877",
+  "email": "brad@bradcvideo.com",
+  "image": `${siteUrl}/images/brad/headshot.jpg`,
+  "description": "Professional video production, corporate photography, and photography workshops in the Knoxville, Tennessee area.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1330 Remsen Street",
+    "addressLocality": "Alcoa",
+    "addressRegion": "TN",
+    "postalCode": "37701",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 35.7895,
+    "longitude": -83.9738
+  },
+  "areaServed": ["Knoxville", "Alcoa", "East Tennessee", "Blount County"],
+  "sameAs": [
+    "https://www.facebook.com/betherecreative/",
+    "https://www.linkedin.com/company/be-there-creative",
+    "https://www.instagram.com/bradcoulter/",
+    "https://www.flickr.com/people/betherecreative/"
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Alcoa Visuals",
+  "url": siteUrl,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": "Brad Coulter"
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <meta name="author" content="Alcoa Visuals" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImageUrl} />
+    <meta property="og:site_name" content="Alcoa Visuals" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImageUrl} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
+    <!-- Page-specific Schema -->
+    <slot name="schema" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/Logo.png" />
+
+    <!-- Additional head content from pages -->
+    <slot name="head" />
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Scroll-triggered fade animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      document.querySelectorAll('.fade-up').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
