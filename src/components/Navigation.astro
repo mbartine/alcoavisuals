@@ -13,18 +13,18 @@ const currentPath = Astro.url.pathname;
 
 <header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-normal bg-white/80 backdrop-blur-sm">
   <nav class="container-wide py-6 flex items-center justify-between">
-    <a href="/" class="hover:opacity-80 transition-opacity">
+    <a href="/" class="shrink-0 hover:opacity-80 transition-opacity">
       <img src="/images/horizontal-logo.png" alt="Alcoa Visuals" class="w-auto shrink-0" style="height: 95px; margin-top: 8px; margin-right: 40px;" />
     </a>
 
     <!-- Desktop Navigation -->
-    <ul class="hidden md:flex items-center gap-10">
+    <ul class="hidden md:flex items-center gap-6">
       {navItems.map((item) => (
         <li>
           <a
             href={item.href}
             class:list={[
-              'link-underline font-body text-xl uppercase tracking-wide',
+              'link-underline font-body text-base uppercase tracking-normal whitespace-nowrap',
               currentPath.startsWith(item.href) ? 'text-black' : 'text-gray-mid hover:text-black'
             ]}
           >
@@ -35,7 +35,7 @@ const currentPath = Astro.url.pathname;
       <li>
         <a
           href="/contact"
-          class="px-6 py-3 text-xl uppercase tracking-wide font-medium bg-black/80 text-white rounded hover:bg-black transition-colors"
+          class="whitespace-nowrap px-5 py-2.5 text-base uppercase tracking-normal font-medium bg-black/80 text-white rounded hover:bg-black transition-colors"
         >
           Contact
         </a>
