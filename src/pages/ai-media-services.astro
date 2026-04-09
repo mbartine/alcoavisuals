@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are AI-enhanced media services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI-enhanced media services use artificial intelligence tools alongside professional photography and video production to create, transform, and optimize visual content. At Alcoa Visuals, we combine industry-standard AI tools with hands-on creative expertise to deliver polished results that pure automation cannot achieve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you turn photos into video reels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We use AI-powered animation and motion tools to add subtle movement, transitions, and cinematic effects to professional photographs, then edit them into short-form video reels optimized for social media. Each reel is professionally reviewed and refined by our production team to ensure broadcast-quality results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do AI-enhanced video services cost in Knoxville?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI-enhanced media service pricing varies based on the number of source images, desired output length, and complexity of the project. Photo-to-video reel packages start at competitive rates for small businesses. Contact Alcoa Visuals for a custom quote tailored to your project scope."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can AI replace professional photography and video production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI is a powerful enhancement tool, but it cannot replace the creative judgment, storytelling ability, and technical expertise of a professional photographer or videographer. Alcoa Visuals uses AI to accelerate production and expand creative possibilities while maintaining the human-directed quality that sets professional work apart."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of businesses benefit from AI-enhanced media?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any business that needs visual marketing content can benefit from AI-enhanced media services, including real estate agencies, e-commerce brands, restaurants, healthcare providers, and corporate offices. These services are especially valuable for businesses that want to maximize the return on existing photo and video assets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to produce AI-enhanced content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI-enhanced photo-to-video reels can typically be delivered within 3-5 business days, significantly faster than traditional video production timelines. More complex projects involving multiple deliverables or extensive customization may take 1-2 weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need new photos taken, or can you work with existing images?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We can work with your existing professional photography library, saving you the cost of a new shoot. For best results, we recommend high-resolution source images. If your current photos need upgrading, we also offer photography services and AI enhancement to bring older images up to modern standards."
+      }
+    }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI-Enhanced Video and Photo Production",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Alcoa Visuals"
+  },
+  "areaServed": "Knoxville, Tennessee",
+  "description": "AI-powered media services including photo-to-video reels, image enhancement, social media content creation, and virtual staging for businesses in East Tennessee."
+};
+
+const offerCatalog = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "name": "AI-Enhanced Media Services",
+  "itemListElement": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Photo-to-Video Marketing Reels" }},
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Image Enhancement & Restoration" }},
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Content Packages" }},
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Virtual Staging & Backgrounds" }}
+  ]
+};
+
+const services = [
+  {
+    title: 'Photo-to-Video Marketing Reels',
+    desc: 'Turn your professional photos into short, attention-grabbing video reels for social media and digital marketing. AI animation combined with professional editing produces polished content from your existing image library.',
+    icon: 'M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664zM21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+  },
+  {
+    title: 'AI Image Enhancement & Restoration',
+    desc: 'Breathe new life into older photos or elevate existing imagery with AI-powered enhancement. Resolution upscaling, color correction, background refinement, and restoration of archival business photos.',
+    icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
+  },
+  {
+    title: 'Social Media Content Packages',
+    desc: 'Repurpose a single photo or video shoot into weeks of social media content. AI generates variations, crops for multiple platforms, adds motion graphics, and creates a consistent content calendar from your visual assets.',
+    icon: 'M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2M9 12h6m-3-3v6'
+  },
+  {
+    title: 'Virtual Staging & Backgrounds',
+    desc: 'Transform product photos with AI-generated environments, or place your business imagery into professional settings without expensive on-location shoots. Ideal for real estate, e-commerce, and corporate marketing.',
+    icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
+  },
+];
+
+const processSteps = [
+  { step: '01', title: 'Share', desc: 'Send us your photos, videos, or visual assets.' },
+  { step: '02', title: 'Plan', desc: 'We design the output format, style, and deliverables.' },
+  { step: '03', title: 'Enhance', desc: 'AI tools plus professional editing bring your vision to life.' },
+  { step: '04', title: 'Deliver', desc: 'Optimized content delivered for your target platforms.' },
+];
+
+const faqs = [
+  {
+    question: 'What are AI-enhanced media services?',
+    answer: 'AI-enhanced media services use artificial intelligence tools alongside professional photography and video production to create, transform, and optimize visual content. At Alcoa Visuals, we combine industry-standard AI tools with hands-on creative expertise to deliver polished results that pure automation cannot achieve.'
+  },
+  {
+    question: 'How do you turn photos into video reels?',
+    answer: 'We use AI-powered animation and motion tools to add subtle movement, transitions, and cinematic effects to professional photographs, then edit them into short-form video reels optimized for social media. Each reel is professionally reviewed and refined by our production team to ensure broadcast-quality results.'
+  },
+  {
+    question: 'How much do AI-enhanced video services cost in Knoxville?',
+    answer: 'AI-enhanced media service pricing varies based on the number of source images, desired output length, and complexity of the project. Photo-to-video reel packages start at competitive rates for small businesses. Contact us for a custom quote tailored to your project scope.'
+  },
+  {
+    question: 'Can AI replace professional photography and video production?',
+    answer: 'AI is a powerful enhancement tool, but it cannot replace the creative judgment, storytelling ability, and technical expertise of a professional photographer or videographer. We use AI to accelerate production and expand creative possibilities while maintaining the human-directed quality that sets professional work apart.'
+  },
+  {
+    question: 'What types of businesses benefit from AI-enhanced media?',
+    answer: 'Any business that needs visual marketing content can benefit, including real estate agencies, e-commerce brands, restaurants, healthcare providers, and corporate offices. These services are especially valuable for businesses that want to maximize the return on existing photo and video assets.'
+  },
+  {
+    question: 'How long does it take to produce AI-enhanced content?',
+    answer: 'AI-enhanced photo-to-video reels can typically be delivered within 3-5 business days, significantly faster than traditional video production timelines. More complex projects involving multiple deliverables or extensive customization may take 1-2 weeks.'
+  },
+  {
+    question: 'Do I need new photos taken, or can you work with existing images?',
+    answer: 'We can work with your existing professional photography library, saving you the cost of a new shoot. For best results, we recommend high-resolution source images. If your current photos need upgrading, we also offer photography services and AI enhancement to bring older images up to modern standards.'
+  },
+];
+---
+
+<BaseLayout
+  title="AI-Enhanced Video & Photo Services | Knoxville TN"
+  description="AI-enhanced video and photo production in Knoxville, TN. Transform professional photos into marketing reels, enhance imagery, and create social media content with Alcoa Visuals."
+  keywords={['AI video production', 'AI photo to video', 'AI enhanced photography', 'Knoxville video production', 'social media reels', 'AI marketing content', 'photo animation Knoxville']}
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(offerCatalog)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative pt-40 pb-xl overflow-hidden">
+    <img src="/images/aluminum-background.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-accent-blue/60"></div>
+    <div class="container-wide relative z-10">
+      <h1 class="fade-up">AI-Enhanced Media Services</h1>
+      <p class="mt-4 text-gray-light text-h3 max-w-2xl mx-auto text-center fade-up" style="transition-delay: 0.1s">
+        Transform your photos and videos with AI-powered production in Knoxville
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-2xl bg-off-black">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto mb-16">
+        <span class="section-label fade-up">AI + Professional Expertise</span>
+        <h2 class="mt-4 mb-6 fade-up" style="transition-delay: 0.1s">Smarter Content From Your Existing Assets</h2>
+        <p class="text-gray-light fade-up" style="transition-delay: 0.2s">
+          AI accelerates production and reduces costs, but it takes a professional eye to get results worth publishing. We combine cutting-edge AI tools with years of photography and video expertise to maximize the return on your visual assets.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {services.map((item, i) => (
+          <div class="glass p-8 fade-up text-center" style={`transition-delay: ${(i + 3) * 0.1}s`}>
+            <svg class="w-10 h-10 text-white mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.icon} />
+            </svg>
+            <h3 class="text-h3 mb-3">{item.title}</h3>
+            <p class="text-gray-light">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="relative py-2xl overflow-hidden">
+    <img src="/images/aluminum-background.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/20"></div>
+    <img src="/images/Logo.png" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] opacity-[0.35] pointer-events-none" />
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-16">
+        <span class="section-label fade-up" style="color: white;">How It Works</span>
+        <h2 class="mt-4 fade-up" style="transition-delay: 0.1s">From Assets to Content</h2>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        {processSteps.map((item, i) => (
+          <div class="text-center fade-up" style={`transition-delay: ${(i + 2) * 0.1}s`}>
+            <div class="text-h2 text-white mb-2">{item.step}</div>
+            <h3 class="mb-2" style="font-size: 1.25rem;">{item.title}</h3>
+            <p class="text-white text-small">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-link to Core Services -->
+  <section class="py-xl bg-charcoal">
+    <div class="container-wide">
+      <div class="glass glass-tint-blue p-8 md:p-12 fade-up">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="section-label">Start From Scratch</span>
+            <h3 class="mt-2 mb-4 text-h2">Need Original Photos or Video?</h3>
+            <p class="text-gray-light">
+              AI enhancement works best with professional source material. We offer full photography and video production services to build your visual library from the ground up.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
+            <a href="/photography" class="btn-outline">Photography &rarr;</a>
+            <a href="/video-services" class="btn-outline">Video Production &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-2xl bg-off-black">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <span class="section-label fade-up">FAQ</span>
+        <h2 class="mt-4 mb-12 fade-up" style="transition-delay: 0.1s">Frequently Asked Questions</h2>
+
+        <div class="space-y-8">
+          {faqs.map((faq, i) => (
+            <div class="glass p-8 fade-up" style={`transition-delay: ${(i + 2) * 0.1}s`}>
+              <h3 class="mb-4" style="font-size: 1.25rem;">{faq.question}</h3>
+              <p class="text-gray-light">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-2xl bg-black">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="mb-6 fade-up">Ready to Amplify Your Visual Content?</h2>
+        <p class="text-gray-light mb-8 fade-up" style="transition-delay: 0.1s">
+          Get more from every photo and video. Let's talk about how AI-enhanced production can work for your business.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up" style="transition-delay: 0.2s">
+          <a href="/contact" class="btn-glass">Get a Quote</a>
+          <a href="tel:8652389877" class="btn-outline">Call 865.238.9877</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
