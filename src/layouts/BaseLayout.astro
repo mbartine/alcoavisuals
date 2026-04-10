@@ -33,9 +33,10 @@ const businessSchema = {
   "email": "brad@bradcvideo.com",
   "image": `${siteUrl}/images/brad/headshot.jpg`,
   "description": "Professional video production, corporate photography, and photography workshops in the Knoxville, Tennessee area.",
+  "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "1330 Remsen Street",
+    "streetAddress": "186 Airport Plaza Blvd., Suite B",
     "addressLocality": "Alcoa",
     "addressRegion": "TN",
     "postalCode": "37701",
@@ -43,8 +44,8 @@ const businessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 35.7895,
-    "longitude": -83.9738
+    "latitude": 35.7991,
+    "longitude": -83.9930
   },
   "areaServed": ["Knoxville", "Alcoa", "East Tennessee", "Blount County"],
   "sameAs": [
@@ -64,6 +65,11 @@ const websiteSchema = {
   "author": {
     "@type": "Person",
     "name": "Brad Coulter"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${siteUrl}/?s={search_term_string}`,
+    "query-input": "required name=search_term_string"
   }
 };
 ---

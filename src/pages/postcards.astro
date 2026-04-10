@@ -13,21 +13,41 @@ const postcards = [
   { name: 'Sunrise', front: '/images/sunrise-front.jpg', back: '/images/sunrise-back.jpg' },
   { name: 'Sunset', front: '/images/sunset-front.jpg', back: '/images/sunset-back.jpg' },
 ];
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "East Tennessee Nature Photography Postcard Set",
+  "description": "10-card postcard set featuring original nature and wildlife photography from East Tennessee and the Smoky Mountains by Brad Coulter.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Alcoa Visuals"
+  },
+  "image": postcards.map(c => `https://alcoavisuals.com${c.front}`),
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.etsy.com/shop/bradcoulterphoto",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "USD"
+  }
+};
 ---
 
 <BaseLayout
-  title="Nature Photography Prints"
+  title="East Tennessee Nature Prints | Alcoa Visuals"
   description="Purchase nature and wildlife photography postcards by Brad Coulter. Bears, elk, butterflies, and Smoky Mountain landscapes available on Etsy."
   keywords={['nature photography', 'wildlife postcards', 'Smoky Mountains photography', 'nature prints', 'Brad Coulter photography']}
 >
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  </Fragment>
   <!-- Hero -->
   <section class="relative pt-40 pb-xl overflow-hidden">
     <img src="/images/kuwohi-front.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-black/60"></div>
     <div class="container-wide relative z-10">
-      <h1 class="fade-up">Nature Photography Postcards</h1>
+      <h1 class="fade-up">East Tennessee Nature Prints</h1>
       <p class="mt-4 text-gray-light text-h3 max-w-2xl mx-auto text-center fade-up" style="transition-delay: 0.1s">
-        Wildlife and landscape photography from the Smoky Mountains and beyond
+        Wildlife and landscape photography from the Smoky Mountains and East Tennessee
       </p>
     </div>
   </section>
